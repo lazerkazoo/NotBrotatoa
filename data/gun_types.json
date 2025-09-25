@@ -1,0 +1,24 @@
+{
+    "pistol": {
+        "damage": 15,
+        "rate": 10,
+        "spread": 1,
+        "bullet": {
+            "speed": 7.5,
+            "size": 4,
+            "lifetime": 0.75,
+            "pierce": 3
+        }
+    },
+    "mini": {
+        "damage": 10,
+        "rate": 5,
+        "spread": 4,
+        "bullet": {
+            "speed": 9,
+            "size": 4,
+            "lifetime": 0.5,
+            "pierce": 1
+        }
+    }
+}

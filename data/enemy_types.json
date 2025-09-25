@@ -1,0 +1,30 @@
+{
+    "fast": {
+        "speed": 2,
+        "health": 15,
+        "damage": 10,
+        "scale": 1,
+        "points": 5
+    },
+    "normal": {
+        "speed": 1.5,
+        "health": 20,
+        "damage": 15,
+        "scale": 1,
+        "points": 10
+    },
+    "strong": {
+        "speed": 1.3,
+        "health": 45,
+        "damage": 30,
+        "scale": 1.5,
+        "points": 15
+    },
+    "tank": {
+        "speed": 1,
+        "health": 60,
+        "damage": 20,
+        "scale": 2,
+        "points": 15
+    }
+}

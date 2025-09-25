@@ -1,0 +1,12 @@
+{
+    "small_font": 24,
+    "medium_font": 48,
+    "large_font": 96,
+    "player_speed": 3,
+    "player_health": 100,
+    "invinsible_time": 1,
+    "width": 0,
+    "height": 0,
+    "fps": 60,
+    "start_spawn_rate": 1
+}
