@@ -1,6 +1,6 @@
 import pygame
-from pygame.surface import Surface
 from pygame.rect import Rect
+from pygame.surface import Surface
 
 
 class SpriteFromSheet:
@@ -12,7 +12,8 @@ class SpriteFromSheet:
         ).convert_alpha()
 
         sprite.blit(pygame.image.load(sheet), (0, 0), (x, y, width, height))
-        sprite = pygame.transform.scale(sprite, (width * scale, height * scale))
+        # Use scale_by for pixel-perfect scaling (nearest-neighbor)
+        sprite = pygame.transform.scale_by(sprite, scale)
 
         self.sprite: Surface = sprite
         self.rect: Rect = sprite.get_rect()

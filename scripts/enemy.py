@@ -1,10 +1,12 @@
+from numpy._core.numerictypes import ScalarType
 import pygame
 import math
 from typing import Optional, Dict, Any, List
-from sprite_sheet import SpriteFromSheet
+from scripts.sprite_sheet import SpriteFromSheet
 
 # Global animation cache to reuse animations across enemies
 _ANIMATION_CACHE: Dict[tuple, List[SpriteFromSheet]] = {}
+
 
 def preload_animations() -> None:
     """Preload all animations to avoid loading them repeatedly"""
@@ -18,6 +20,7 @@ def preload_animations() -> None:
                 for i in range(6)
             ]
 
+
 def get_enemy_animations(scale: int) -> List[SpriteFromSheet]:
     """Get preloaded animations for the given scale"""
     cache_key = ("enemy_walk", scale)
@@ -29,8 +32,15 @@ def get_enemy_animations(scale: int) -> List[SpriteFromSheet]:
         ]
     return _ANIMATION_CACHE[cache_key]
 
+
 class Enemy:
-    def __init__(self, scale: int, pos: tuple[int, int], enemy_type: str = "normal", enemy_data: Optional[Dict[str, Any]] = None) -> None:
+    def __init__(
+        self,
+        scale: int,
+        pos: tuple[int, int],
+        enemy_type: str = "normal",
+        enemy_data: Optional[Dict[str, Any]] = None,
+    ) -> None:
         self.scale = scale
         self.pos = list(pos)  # Convert to list for easier modification
         self.enemy_type = enemy_type
@@ -53,8 +63,11 @@ class Enemy:
         self.invincible_to: list[pygame.Rect] = []
         self.max_invincible_entries = 100
 
-        self.sprite = SpriteFromSheet(0, 0, 32, 32, self.scale, "assets/sprites/player.png")
+        self.sprite = SpriteFromSheet(
+            0, 0, 32, 32, self.scale, "assets/sprites/player.png"
+        )
         self.rect = self.sprite.sprite.get_rect(center=pos)
+        self.hitbox = pygame.Rect(8 * scale, 8 * scale, 8 * scale, 8 * scale)
 
     def draw(self, surface: pygame.Surface) -> None:
         surface.blit(self.sprite.sprite, self.rect)
@@ -122,3 +135,5 @@ class Enemy:
                 self.pos[0] += dx
                 self.pos[1] += dy
                 self.rect.center = (int(self.pos[0]), int(self.pos[1]))
+                self.hitbox.center = self.pos
+                self.hitbox.y += 8 * self.scale

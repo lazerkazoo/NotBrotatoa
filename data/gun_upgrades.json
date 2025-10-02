@@ -1,0 +1,32 @@
+{
+  "rate": {
+    "name": "Rate",
+    "description": "Increase the rate of fire",
+    "change_by": -0.25
+  },
+  "damage": {
+    "name": "Damage",
+    "description": "Increase the bullet damage",
+    "change_by": 10
+  },
+  "speed": {
+    "name": "Speed",
+    "description": "Increase the bullet speed",
+    "change_by": 1
+  },
+  "lifetime": {
+    "name": "Duration",
+    "description": "Increase the bullet duration",
+    "change_by": 0.5
+  },
+  "pierce": {
+    "name": "Pierce",
+    "description": "Increase the bullet pierce",
+    "change_by": 1
+  },
+  "spread": {
+    "name": "Spread",
+    "description": "Decrease the bullet spread",
+    "change_by": -0.1
+  }
+}
